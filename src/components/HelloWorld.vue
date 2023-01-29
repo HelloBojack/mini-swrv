@@ -9,5 +9,6 @@ const { data, error } = useSWRV("https://echo.apifox.com/uuid", fetcher);
     <div v-if="error">failed to load</div>
     <div v-if="!data">loading...</div>
     <div v-else>hello {{ data.uuid }}</div>
+    <!-- <div>isValidating：{{ isValidating }}</div> -->
   </div>
 </template>

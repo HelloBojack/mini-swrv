@@ -6,23 +6,14 @@ export default function useSWRV(key, fetcher) {
     error: undefined,
   });
 
-  const revalidate = () => {
-    const trigger = async () => {
-      const fetcherArgs = [key];
-      const newPromise = fetcher(...fetcherArgs);
-      let data, error;
+  const revalidate = async () => {
+    const newPromise = fetcher(key);
 
-      try {
-        data = await newPromise;
-      } catch (err) {
-        error = err;
-      }
-
-      stateRef.data = data;
-      stateRef.error = error;
-    };
-
-    trigger();
+    try {
+      stateRef.data = await newPromise;
+    } catch (err) {
+      stateRef.error = err;
+    }
   };
 
   onMounted(() => {
