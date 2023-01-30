@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import HelloWorld from "./components/HelloWorld.vue";
+import HelloWorld2 from "./components/HelloWorld2.vue";
 </script>
 
 <template>
@@ -14,6 +15,7 @@ import HelloWorld from "./components/HelloWorld.vue";
 
     <div class="wrapper">
       <HelloWorld />
+      <HelloWorld2 />
     </div>
   </header>
 </template>
